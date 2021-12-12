@@ -43,10 +43,10 @@ def prep_data_for_dnn(list_of_cells, artificial_parameters, list_of_gratings, fr
         counter += frames_per_trial
 
     # get hyperparams and other parameters for running the neural nets
-    general_parameters, mlp_parameters, vae_parameters, lstm_parameters, artificial_info = get_hyperparams()
+    general_parameters, vae_parameters, artificial_info = get_hyperparams()
     general_parameters['validate_flag'] = 'True'
     general_parameters['num_classes'] = different_classes + 1
-    return general_parameters, mlp_parameters, vae_parameters, lstm_parameters, validation_data, validation_labels, test_labels, test_data, input_labels, input_data, artificial_df, data_per_trial
+    return general_parameters, vae_parameters, validation_data, validation_labels, test_labels, test_data, input_labels, input_data, artificial_df, data_per_trial
 
 
 def run_actual_neural_nets(general_parameters, mlp_parameters, vae_parameters, artificial_parameters, validation_data, validation_labels, test_labels, test_data, input_labels, input_data,
