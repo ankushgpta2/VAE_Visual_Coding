@@ -49,7 +49,7 @@ def prep_data_for_dnn(list_of_cells, artificial_parameters, list_of_gratings, fr
     return general_parameters, vae_parameters, validation_data, validation_labels, test_labels, test_data, input_labels, input_data, artificial_df, data_per_trial
 
 
-def run_actual_neural_nets(general_parameters, mlp_parameters, vae_parameters, artificial_parameters, validation_data, validation_labels, test_labels, test_data, input_labels, input_data,
+def run_actual_neural_nets(general_parameters, vae_parameters, artificial_parameters, validation_data, validation_labels, test_labels, test_data, input_labels, input_data,
                            data_per_trial, random_gratings):
     history_holder = {}
     results_holder = {}
