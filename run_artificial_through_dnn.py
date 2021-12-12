@@ -2,6 +2,7 @@ from artificial_data import *
 import matplotlib.pyplot as plt
 from handle_inputs import *
 from plot_dnn_outputs import *
+from vae_structure import *
 
 
 def prep_data_for_dnn(list_of_cells, artificial_parameters, list_of_gratings, frames_per_orientation, on_set, frames_per_trial, random_gratings):
@@ -72,9 +73,6 @@ def run_actual_neural_nets(general_parameters, mlp_parameters, vae_parameters, a
             vae, history_for_vae, results = run_vae(vae, encoder, general_parameters, vae_parameters, test_data, test_labels, input_data, input_labels, validation_data, validation_labels,
                                                 batch_size=batch_size, keep_vae_per_latent_dim=False, learning_rate=learning_rate, reg=reg, latent_dim=latent_dim, epochs=epochs)
 
-            encoded_train_input = encoder.predict(input_data)
-            encoded_test_input = encoder.predict(test_data)
-            run_mlp(encoded_train_input, encoded_test_input, input_labels, test_labels, mlp_parameters, general_parameters, epochs, learning_rate, batch_size, reg)
 
             results_holder['VAE: ' + str(v)] = results[0], results[1]
             history_holder['VAE: ' + str(v)] = list(history_for_vae.history.items())
