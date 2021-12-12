@@ -102,6 +102,7 @@ def generate_response_profile(artificial_parameters, list_of_cells):
                 counter -= activity_decrease_step
             activity_vals.append(activity_value)
 
+    example = list_of_cells[:, 0]
     frame_counter = 100
     activity_ramp = []
     for x in activity_vals:
@@ -109,13 +110,6 @@ def generate_response_profile(artificial_parameters, list_of_cells):
         local_average = np.mean(example[frame_counter:frame_counter+frames_per_AP_event])
         final_activity_value = x / local_average
         activity_ramp.append(final_activity_value)
-        example[frame_counter:frame_counter + frames_per_AP_event] = subset * final_activity_value
-        example[frame_counter+400:frame_counter + 400 + frames_per_AP_event] = example[frame_counter+400:frame_counter + 400 + frames_per_AP_event] * final_activity_value
-        example[frame_counter+800:frame_counter + 800 + frames_per_AP_event] = example[frame_counter+800:frame_counter + 800 + frames_per_AP_event] * final_activity_value
-        if x == activity_vals[0]:
-            axes[1].plot([frame_counter, frame_counter + round(imaging_rate*0.1)], [0.4, 0.4], color='black', label='First 100ms', linewidth=5)
-            axes[1].plot([frame_counter+400, frame_counter + round(imaging_rate*0.1) + 400], [0.4, 0.4], color='black', linewidth=5)
-            axes[1].plot([frame_counter + 800, frame_counter + round(imaging_rate * 0.1) + 800], [0.4, 0.4], color='black', linewidth=5)
         frame_counter += frames_per_AP_event
 
     return activity_ramp, frames_per_AP_event
