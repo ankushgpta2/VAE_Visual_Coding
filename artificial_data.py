@@ -17,7 +17,7 @@ def artificial_main(repeat):
     list_of_cells = generate_baseline_activity(artificial_parameters)
     activity_ramp, frames_per_AP_event = generate_response_profile(artificial_parameters, list_of_cells)
     cell_to_grating_tuning, frames_per_orientation, random_gratings, on_set, list_of_gratings, stim_duration_in_frames, frames_per_trial = get_neurons_and_frames(artificial_parameters)
-    # list_of_cells = introduce_noise_to_baseline(artificial_parameters, list_of_cells)
+    list_of_cells = introduce_noise_to_baseline(artificial_parameters, list_of_cells)
     global_activation_order, ensemble_holder, positions = get_initial_active_and_branch(artificial_parameters, cell_to_grating_tuning)
     list_of_cells, frames_per_orientation = modify_baseline_with_stim_response(global_activation_order, random_gratings, frames_per_orientation, on_set, list_of_cells,
                                                        artificial_parameters, frames_per_AP_event, activity_ramp)
