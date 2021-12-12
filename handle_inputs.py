@@ -55,5 +55,5 @@ def get_args():
     parser.add_argument('--vae_batch_norm', type=str, default='True', help='whether or not to add batchnorm layers')
     parser.add_argument('--vae_plot_latent', type=str, default='True', help='whether or not to plot latent space')
     # for artificial data
-    parser.add_argument('--run_artificial', type=bool, default=False, help='number of epochs to train')
+    parser.add_argument('--run_artificial', type=bool, default=True, help='number of epochs to train')
     return parser
