@@ -135,10 +135,6 @@ def run_vae(vae, encoder, general_parameters, vae_parameters, test_data, test_la
     # actual label predictions
     activity_pred = vae.predict(test_data, batch_size=batch_size)
 
-    # plot the learned latent space --------------------------------------->
-    if vae_parameters['vae_plot_latent'] == 'True':
-        z_test = encoder.predict(test_data, batch_size=batch_size)
-        plot_latent(z_latent_test=z_test, test_labels=test_labels, title='Vanilla VAE Latent Space for Tiago Data')
     return vae, history_for_vae, results, latent_pred, activity_pred
 
 
