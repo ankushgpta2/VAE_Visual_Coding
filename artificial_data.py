@@ -245,16 +245,6 @@ def modify_baseline_with_stim_response(global_activation_order, random_gratings,
             appended_frames = frames_per_orientation[random_gratings[x]] + frames_for_trial
             frames_per_orientation[random_gratings[x]] = appended_frames
         synaptic_delay_per_neuron = 0
-        # getting number of subplots for one of the trials to plot
-        if x == 20:
-            if len(cells_for_grating.keys()) > 10:
-                num_subplots = 10
-            else:
-                num_subplots = len(cells_for_grating.keys())
-            fig, axes = plt.subplots(num_subplots, 1)
-            plt.suptitle('Simulated Neural Activity For Follower Units In Network', fontweight='bold')
-            starting_frame = frames_for_trial[0] - 200
-            ending_frame = frames_for_trial[0] + 200
         # cycle through each of the activation sets for the particular orientation grating
         for i in range(len(cells_for_grating.keys())):
             cells_for_specific_activation = cells_for_grating[i]
@@ -273,15 +263,4 @@ def modify_baseline_with_stim_response(global_activation_order, random_gratings,
                     multiplied = subset_for_cell * z
                     list_of_cells[start_frame:start_frame+frames_per_AP_event, y] = multiplied
                     frame_counter += frames_per_AP_event
-            # plot one cell from each activation cohort for the trial (20th trial)
-                if x == 20 and i < 10:
-                    axes[i].plot(range(starting_frame, ending_frame), list_of_cells[starting_frame:ending_frame, cells_for_specific_activation[0]], color='dodgerblue')
-                    starting_frame_for_activation_set = frame_counter-(frames_per_AP_event * len(activity_ramp))+synaptic_delay_per_neuron
-                    axes[i].plot(range(start_frame-(round(synaptic_delay*imaging_rate))-(round(delay_after_stim*imaging_rate)), frame_counter),
-                                 list_of_cells[start_frame-(round(synaptic_delay*imaging_rate))-(round(delay_after_stim*imaging_rate)):frame_counter, cells_for_specific_activation[0]], color='red')
-                    axes[i].plot([frames_for_trial[0], frames_for_trial[0]], [0, 1.7], '--', color='black', linewidth=2)
-                    axes[i].set_ylim([0, 1.5])
-                    if i != num_subplots-1:
-                        axes[i].set_xticks([])
-        # plt.show()
     return list_of_cells, frames_per_orientation
