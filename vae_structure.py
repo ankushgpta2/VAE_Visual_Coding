@@ -135,7 +135,7 @@ def run_vae(vae, encoder, general_parameters, vae_parameters, test_data, test_la
     # actual label predictions
     activity_pred = vae.predict(test_data, batch_size=batch_size)
 
-    return vae, history_for_vae, results, latent_pred, activity_pred
+    return vae, history_for_vae, results
 
 
 def sample_from_latent(args):
