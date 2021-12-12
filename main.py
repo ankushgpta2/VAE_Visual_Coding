@@ -1,6 +1,5 @@
-from dnn_structures import *
 from artificial_data import *
-from handle_dnn_inputs import *
+from handle_inputs import *
 import tensorflow as tf
 from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Dense
