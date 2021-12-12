@@ -85,6 +85,4 @@ def run_actual_neural_nets(general_parameters, vae_parameters, artificial_parame
                 plot_latent_3d(z_latent_test=z_test, test_labels=test_labels, title='3D ' + name_of_vae + ' Latent Space For Artificial Data',
                         num_classes=artificial_parameters['different_classes'], average=20)
             
-    # plot a few things -->
-    plot_loss(results_holder, history_holder, general_parameters, name=name_of_vae, exp_name='Training DNNs On Simulated V1 Data', vae_parameters=vae_parameters, mlp_parameters=mlp_parameters)
-
+  
