@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 
 def plot_loss(results_holder, history_holder, general_parameters, name, exp_name, vae_parameters, mlp_parameters):
     # for training loss and accuracy
