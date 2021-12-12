@@ -23,7 +23,7 @@ def artificial_main(repeat):
                                                        artificial_parameters, frames_per_AP_event, activity_ramp)
     general_parameters, vae_parameters, validation_data, validation_labels, test_labels, test_data, input_labels, input_data, artificial_df, data_per_trial = prep_data_for_dnn(list_of_cells, artificial_parameters, 
                                                                         list_of_gratings, frames_per_orientation, on_set, frames_per_trial, random_gratings)
-    run_actual_neural_nets(general_parameters, mlp_parameters, vae_parameters, artificial_parameters, validation_data, validation_labels, test_labels, test_data, input_labels, input_data,
+    run_actual_neural_nets(general_parameters, vae_parameters, artificial_parameters, validation_data, validation_labels, test_labels, test_data, input_labels, input_data,
                                data_per_trial, random_gratings)
 
 
