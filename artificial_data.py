@@ -229,7 +229,6 @@ def get_initial_active_and_branch(artificial_parameters, cell_to_grating_tuning)
                 activation_order_for_cells[key_counter] = cells_for_grating[z:z+num_initial]
                 key_counter += 1
         global_activation_order[x] = activation_order_for_cells
-    ensemble_holder, positions = spatially_group_cells(global_activation_order)
     return global_activation_order, ensemble_holder, positions
 
 def modify_baseline_with_stim_response(global_activation_order, random_gratings, frames_per_orientation, on_set, list_of_cells, artificial_parameters, frames_per_AP_event, activity_ramp):
